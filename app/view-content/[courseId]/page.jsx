@@ -26,11 +26,13 @@ function ViewContent() {
         setLoading(false)
       }
   return (
-    <div className='flex items-center justify-center min-h-screen'>
+    <div className='p-2'>
       {
         loading?
-
-        <Loader2 size={80} className=' animate-spin text-gray-500'/>:
+          <div className='flex items-center justify-center min-h-screen'>
+            <Loader2 size={80} className=' animate-spin text-gray-500'/>
+          </div>
+        :
         <Content/>
       }
       

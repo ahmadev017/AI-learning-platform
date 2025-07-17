@@ -114,13 +114,13 @@ console.log("setcompleted",completedChapters)
   const contentData =
     enrollContent?.courses?.courseContent?.[indexx]?.courseData || [];
   return (
-    <div className="p-4 sm:p-10">
+    <div className="p-2 sm:p-6">
       {chapters.map((chapter, i) =>
       ( i === indexx) ? (
           <div key={i}>
             
-            <div className="flex justify-between">
-              <h2 className="font-bold text-2xl">{chapter.chapterName}</h2>{
+            <div className="flex flex-col sm:gap-4 sm:flex-row sm:justify-between">
+              <h2 className="font-bold text-2xl my-4">{chapter.chapterName}</h2>{
                 !completedChapter?.includes(indexx)?
                 <Button onClick={()=>markAsCompleted()} >{
                   completeLoading?
