@@ -32,8 +32,8 @@ function LearnCourse() {
     <div className='p-5'>
       {
         loading?
-        <div className='flex items-center justify-center min-h'>
-          <Loader2 size={80}/>
+        <div className='flex items-center justify-center min-h-[60vh] text-gray-500'>
+          <Loader2 className='animate-spin' size={80}/>
         </div>:
         <div>
           <CourseInfoo course={course} />
