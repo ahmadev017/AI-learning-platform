@@ -2,28 +2,24 @@
 import axios from "axios";
 import { useParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
-import CourseInfo from '../-components/CourseInfo';
-import CourseLayout from '../-components/CourseLayout';
-import { Loader2Icon } from "lucide-react";
+import CourseInfo from '../-components/CourseInfo'
+import CourseLayout from '../-components/CourseLayout'
+import { Loader, Loader2Icon } from "lucide-react";
 
 function EditCourse() {
   const { courseId } = useParams();
   const [course, setCourse] = useState(null);
-  const [loading, setLoading] = useState(false);
-
-  // 👇 Hardcoded since it's not passed as a prop
-  const learnCourse = false;
+  const [loading , setLoading] = useState(false)
 
   const getCourseInfo = async () => {
-    setLoading(true);
+    setLoading(true)
     try {
       const result = await axios.get("/api/courses?courseId=" + courseId);
       console.log(result.data);
       setCourse(result.data);
+      setLoading(false)
     } catch (error) {
       console.error("Failed to fetch course:", error);
-    } finally {
-      setLoading(false);
     }
   };
 
@@ -33,23 +29,27 @@ function EditCourse() {
     }
   }, [courseId]);
 
-  return (
+  return(
     <div>
-      {loading ? (
+      {
+        loading?
         <div className="flex w-full min-h-screen items-center justify-center">
-          <Loader2Icon width={80} height={80} className="animate-spin text-gray-600" />
+          <Loader2Icon width={80} height={80} className="animate-spin text-gray-600"/>
         </div>
-      ) : (
+        :
         <div className="p-6">
-          <CourseInfo course={course} learnCourse={learnCourse} />
-          <CourseLayout course={course} />
+           <CourseInfo course={course}/>
+      <CourseLayout course={course}/>
         </div>
-      )}
-    </div>
-  );
+      }
+    
+      </div>
+      
+     
+    
+    
+  )
 }
 
 export default EditCourse;
-
-
 

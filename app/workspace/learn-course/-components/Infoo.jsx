@@ -8,7 +8,7 @@ import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { toast } from "sonner";
 
-function CourseInfo({ course  }) {
+function CourseInfoo({ course  }) {
   const courseLayout = course?.courseJson?.course;
   const bannerImageUrl = course?.imageUrl;
   const duration = course?.duration;
@@ -83,23 +83,12 @@ const generateCourseContent = async () => {
           </div>
         </div>
          
-         <Button
-          onClick={generateCourseContent}
-          disabled={loading}
+          <Link href={`/view-content/${courseId}`}><Button
           className="cursor-pointer flex flex-row gap-2 w-full md:w-lg mt-2 sm:mt-4"
         >
-          {loading ? (
-            <>
-              <LoaderPinwheel className="animate-spin" />
-              Generating...
-            </>
-          ) : (
-            <>
-              <Wand />
-              Generate Content
-            </>
-          )}
-        </Button>
+          <PlayCircle/>
+          Continue learning
+        </Button></Link>
          
          
         
@@ -119,4 +108,4 @@ const generateCourseContent = async () => {
   );
 }
 
-export default CourseInfo;
+export default CourseInfoo;

@@ -1,12 +1,12 @@
 "use client"
 import { useParams } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
-import CourseInfo from  '@/app/workspace/edit-course/-components/CourseInfo'
+import CourseInfoo from  '@/app/workspace/learn-course/-components/Infoo'
 import CourseLayout from  '@/app/workspace/edit-course/-components/CourseLayout'
 import axios from 'axios';
 import { Loader2 } from 'lucide-react'
 
-function LearnCourse(learnCourse=true) {
+function LearnCourse() {
     const { courseId } = useParams();
   const [course, setCourse] = useState(null);
   const [loading , setLoading] = useState(false)
@@ -36,7 +36,7 @@ function LearnCourse(learnCourse=true) {
           <Loader2 size={80}/>
         </div>:
         <div>
-          <CourseInfo course={course} learnCorse={learnCourse}/>
+          <CourseInfoo course={course} />
       <CourseLayout course={course}/>
         </div>
         
