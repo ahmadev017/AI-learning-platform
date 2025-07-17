@@ -6,10 +6,13 @@ import CourseInfo from '../-components/CourseInfo';
 import CourseLayout from '../-components/CourseLayout';
 import { Loader2Icon } from "lucide-react";
 
-function EditCourse({ learnCourse } = { learnCourse: false }) {
+function EditCourse() {
   const { courseId } = useParams();
   const [course, setCourse] = useState(null);
   const [loading, setLoading] = useState(false);
+
+  // 👇 Hardcoded since it's not passed as a prop
+  const learnCourse = false;
 
   const getCourseInfo = async () => {
     setLoading(true);
@@ -47,5 +50,6 @@ function EditCourse({ learnCourse } = { learnCourse: false }) {
 }
 
 export default EditCourse;
+
 
 
