@@ -6,7 +6,7 @@ import CourseInfo from '../-components/CourseInfo'
 import CourseLayout from '../-components/CourseLayout'
 import { Loader, Loader2Icon } from "lucide-react";
 
-function EditCourse(learnCourse=false) {
+function EditCourse({learnCourse=false}) {
   const { courseId } = useParams();
   const [course, setCourse] = useState(null);
   const [loading , setLoading] = useState(false)
