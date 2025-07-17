@@ -53,7 +53,7 @@ const user = useUser()
           </div>:
           <div className=' flex flex-col gap-4 w-full'> 
             <h1 className='font-bold text-3xl mt-4'>Course List</h1>
-            <div className={`flex flex-wrap gap-5 ${content.length>3?'flex-start':'items-center justify-center'}  w-full`}>
+            <div className={`flex flex-wrap gap-5 ${content.length>=3?'flex-start':'items-center justify-center'}  w-full`}>
           
           {
             content.map((course,index)=>(
