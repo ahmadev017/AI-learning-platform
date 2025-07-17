@@ -1,4 +1,5 @@
-import { boolean, integer, pgTable, varchar, json, text } from "drizzle-orm/pg-core";
+import { boolean, integer, pgTable, varchar, json, text, unique } from "drizzle-orm/pg-core";
+
 
 export const usersTable = pgTable("users", {
   id: integer().primaryKey().generatedAlwaysAsIdentity(),
@@ -22,10 +23,19 @@ export const coursesTable = pgTable("courses", {
 });
 
 
-export const enrollCoursesTable = pgTable("EnrollCourses", {
-  id: integer().primaryKey().generatedAlwaysAsIdentity(),
-  cid: varchar({ length: 255 }).references(()=>coursesTable.cid).unique(),
-  userEmail: varchar({ length: 255 }).references(() => usersTable.email),
-  completedChapters:json().default([]),
- 
-});
+export const enrollCoursesTable = pgTable(
+  "EnrollCourses",
+  {
+    id: integer().primaryKey().generatedAlwaysAsIdentity(),
+    cid: varchar({ length: 255 }).references(() => coursesTable.cid),
+    userEmail: varchar({ length: 255 }).references(() => usersTable.email),
+    completedChapters: json().default([]),
+  },
+  (table) => {
+    return {
+      // 👇 Ensure one user can't enroll in the same course twice
+      uniqueEnrollment: unique().on(table.cid, table.userEmail),
+    };
+  }
+);
+

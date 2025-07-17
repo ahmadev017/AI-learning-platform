@@ -20,18 +20,18 @@ function MyLearning() {
     setLoading(false);
   };
   return (
-    <div className=" p-10">
+    <div className=" p-4 sm:p-10">
      {loading ? (
   <div className="flex items-center justify-center h-[70vh]">
     <Loader2 size={80} className="animate-spin text-gray-500" />
   </div>
 ) : (
   <div>
-    <h2 className="my-5 font-bold text-2xl">Enrolled courses</h2>
+    <h2 className="my-8 font-bold text-3xl">Enrolled courses</h2>
     {enrollContent.length === 0 ? (
       <p className="text-gray-500 font-extrabold text-3xl p-6 border rounded-2xl bg-gradient-to-br from-green-300 to-yellow-400 shadow-2xl">You haven't enrolled in any courses yet.</p>
     ) : (
-      <div className="flex flex-wrap gap-5 w-full items-start justify-start">
+      <div className="flex flex-wrap gap-5 w-full items-center justify-center sm:justify-start">
         {enrollContent.map((course, index) => (
           <EnrollCourseCard key={index} course={course} />
         ))}

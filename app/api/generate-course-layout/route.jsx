@@ -82,7 +82,7 @@ User Input:
   ];
   if(!hasPremiumAccess){
     const result =await db.select().from(coursesTable).where(eq(coursesTable.userEmail,user?.primaryEmailAddress.emailAddress))
-    if (result.length >=1){
+    if (result.length >=4){
       return NextResponse.json({'resp':'limit exceed'})
     }
   }
