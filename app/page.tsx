@@ -366,7 +366,7 @@ const LandingPage = () => {
             <div className={`flex flex-col sm:flex-row gap-4 justify-center items-center mb-16 transform transition-all duration-1000 delay-800 ${
               isHeroVisible ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'
             }`}>
-              <Link href={"/workspace/mylearning"}>
+              <Link href={"/workspace"}>
               <Button 
                 size="lg" 
                 className="bg-gradient-to-r from-purple-600 to-blue-500 hover:from-purple-700 hover:to-blue-600 text-white shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:scale-110 hover:-translate-y-1 px-8 py-4 text-lg group animate-pulse-gentle"
