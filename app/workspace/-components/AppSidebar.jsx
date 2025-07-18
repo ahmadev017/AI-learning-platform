@@ -19,6 +19,7 @@ import {
   Compass,
   LayoutDashboard,
   NotebookPen,
+  Sparkles,
   User2Icon,
   WalletCards,
 } from "lucide-react";
@@ -40,12 +41,16 @@ function AppSidebar() {
   return (
     <Sidebar>
       <SidebarHeader className="p-4 flex flex-col gap-4">
-        <Image
-          src="/logo.svg"
-          width={150}
-          height={50} 
-          alt="Logo"
-        />
+        <div className="flex items-center justify-between my-4 mt-6">
+                    <div className="flex items-center space-x-2">
+                      <div className="w-8 h-8 bg-gradient-to-br from-purple-600 to-blue-500 rounded-lg flex items-center justify-center">
+                        <Sparkles className="w-5 h-5 text-white" />
+                      </div>
+                      <span className="text-xl font-bold bg-gradient-to-r from-purple-600 to-blue-500 bg-clip-text text-transparent">
+                        MindSpark
+                      </span>
+                    </div>
+                    </div>
 
         <GenerateContentDialog>
           <Button className="cursor-pointer w-full">Create New Course</Button>
